@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
           >
             <PinnacleLogo
               variant="full"
-              className="h-7 sm:h-8 md:h-9 w-auto filter drop-shadow-md group-hover:brightness-110 transition-all"
+              className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto filter drop-shadow-md group-hover:brightness-110 transition-all"
             />
           </a>
 
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
           className="md:hidden bg-[#0a0d0b] light:bg-[#ffffff] border-b border-white/10 light:border-black/10 px-5 sm:px-6 py-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
         >
           <div className="flex items-center justify-between pb-4 mb-2 border-b border-white/10 light:border-black/10">
-            <PinnacleLogo variant="full" className="h-6 w-auto" />
+            <PinnacleLogo variant="full" className="h-7 sm:h-8 w-auto" />
             <span className="text-[11px] font-medium text-[#39ff88] light:text-[#075c32] bg-[#39ff88]/10 px-2.5 py-1 rounded-full border border-[#39ff88]/20">
               Studio
             </span>

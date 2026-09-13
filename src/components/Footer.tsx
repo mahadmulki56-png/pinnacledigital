@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Left: Pinnacle Brand & Credit */}
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
             <a href="#hero" className="hover:opacity-90 transition-opacity">
-              <PinnacleLogo variant="full" className="h-6 sm:h-7 w-auto" />
+              <PinnacleLogo variant="full" className="h-7 sm:h-8 md:h-9 w-auto" />
             </a>
             <span className="hidden sm:inline text-white/20 light:text-black/20">|</span>
             <div className="text-xs sm:text-sm text-[#a0ada3] light:text-[#4a594e]">

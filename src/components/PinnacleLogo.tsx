@@ -8,18 +8,14 @@ interface PinnacleLogoProps {
 
 export const PinnacleLogo: React.FC<PinnacleLogoProps> = ({
   variant = 'full',
-  className = 'h-8 sm:h-9 w-auto',
+  className = 'h-8 sm:h-9 md:h-10 w-auto',
   showCursor = true,
 }) => {
-  const [pngAvailable, setPngAvailable] = useState<boolean | null>(null);
-
-  // If the user uploads a direct raster PNG into /public/pinnaclelogo.png, we can render it
-  // otherwise we render the high-precision vector SVG component
   return (
     <div className={`relative inline-flex items-center select-none ${className}`}>
       {variant === 'full' ? (
         <svg
-          viewBox="0 0 520 180"
+          viewBox="12 30 462 130"
           className="w-full h-full overflow-visible"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
