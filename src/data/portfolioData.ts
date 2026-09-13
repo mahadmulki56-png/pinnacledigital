@@ -11,10 +11,10 @@ export const NAV_LINKS: NavLinkItem[] = [
 export const AGENCY_INFO = {
   name: 'Pinnacle Digital',
   tagline: 'Remote Web Design & Web Development',
-  leadName: 'Arion Vance',
+  leadName: 'Mateo Sanchez',
   leadRole: 'Design Director & Lead Architect',
   location: 'Remote · London / San Francisco / Zurich',
-  email: 'hello@pinnacledigital.com',
+  email: 'pinnacledigital701@gmail.com',
   availability: 'Available for Q2/Q3 Projects',
 };
 
@@ -101,8 +101,8 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'starter',
     name: 'Starter Sprint',
-    price: '$1,800',
-    period: '/Sprint',
+    price: '$799',
+    period: '',
     description: 'Perfect for startups and emerging brands needing consistent, high-velocity product design support and structured visual direction.',
     features: [
       'Full Website or Landing Page Design',
@@ -118,8 +118,8 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'growth',
     name: 'Growth Partner',
-    price: '$3,200',
-    period: '/Month',
+    price: '$1599',
+    period: '',
     description: 'For scaling brands seeking advanced UX thinking, rapid engineering, conversion optimization, and continuous agile delivery.',
     features: [
       'Full Website & Web Application Engineering',
@@ -134,6 +134,23 @@ export const PRICING_PLANS: PricingPlan[] = [
     badge: 'Popular Engagement',
     ctaText: 'Reserve Your Slot',
   },
+  {
+    id: 'premier',
+    name: 'Premeier Package',
+    price: '$3200',
+    period: '',
+    description: 'Perfect for startups and emerging brands needing consistent, high-velocity product design support and structured visual direction.',
+    features: [
+      'Full Website or Landing Page Design',
+      'Core UI System & Typography Hierarchy',
+      'Mobile-First Responsive Layouts',
+      'Monthly Strategy Sync & Roadmap',
+      'Two Revision Rounds per Deliverable',
+      'Direct Private Slack Channel Communication',
+    ],
+    highlighted: false,
+    ctaText: 'Get In Touch',
+    },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
