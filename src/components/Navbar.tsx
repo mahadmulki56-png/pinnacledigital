@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Menu, X, Sun, Moon } from 'lucide-react';
 import { NAV_LINKS, AGENCY_INFO } from '../data/portfolioData.ts';
+import { PinnacleLogo } from './PinnacleLogo.tsx';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -31,24 +32,17 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Wordmark */}
+          {/* Official Pinnacle Brand Logo matching user uploaded asset */}
           <a
             href="#hero"
             id="nav-logo"
-            className="group flex items-center gap-2.5 focus:outline-none"
+            className="group flex items-center gap-3 focus:outline-none transition-transform duration-300 hover:scale-[1.02]"
+            aria-label="Pinnacle Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#12b85a] to-[#075c32] p-0.5 flex items-center justify-center shadow-sm shadow-[#12b85a]/20 group-hover:shadow-[#39ff88]/40 transition-all duration-300">
-              <div className="w-full h-full bg-[#0a0d0b] light:bg-[#ffffff] rounded-[6px] flex items-center justify-center">
-                <span className="font-display font-extrabold text-sm text-[#39ff88] light:text-[#075c32] tracking-tighter">
-                  P
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-base tracking-tight text-[#f4f7f4] light:text-[#0d140f] group-hover:text-[#39ff88] transition-colors">
-                Pinnacle Digital
-              </span>
-            </div>
+            <PinnacleLogo
+              variant="full"
+              className="h-7 sm:h-8 md:h-9 w-auto filter drop-shadow-md group-hover:brightness-110 transition-all"
+            />
           </a>
 
           {/* Desktop Navigation Links */}
@@ -107,6 +101,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
           id="mobile-nav-panel"
           className="md:hidden bg-[#0a0d0b] light:bg-[#ffffff] border-b border-white/10 light:border-black/10 px-5 sm:px-6 py-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
         >
+          <div className="flex items-center justify-between pb-4 mb-2 border-b border-white/10 light:border-black/10">
+            <PinnacleLogo variant="full" className="h-6 w-auto" />
+            <span className="text-[11px] font-medium text-[#39ff88] light:text-[#075c32] bg-[#39ff88]/10 px-2.5 py-1 rounded-full border border-[#39ff88]/20">
+              Studio
+            </span>
+          </div>
           <div className="flex flex-col gap-2">
             {NAV_LINKS.map((link) => (
               <a

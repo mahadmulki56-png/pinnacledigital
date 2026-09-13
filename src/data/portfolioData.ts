@@ -22,28 +22,28 @@ export const AGENCY_INFO = {
 export const PROJECTS: Project[] = [
   {
     number: '01',
-    title: 'Lumora Beauty Rebrand',
+    title: 'Bjorbun Burgers Restaurant',
     category: 'Brand Identity · Digital Commerce · 3D Experience',
     description:
-      'We transformed Lumora into a modern luxury skincare brand with refined visuals, sustainable packaging, and a conversion-focused eCommerce experience designed for growth.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=85',
+      'We transformed Bjorbun Burgers into a modern luxury skincare brand with refined visuals, sustainable packaging, and a conversion-focused eCommerce experience designed for growth.',
+    image: '/bjorbun image.png',
     link: '#',
     tags: ['Next.js', 'Tailwind CSS', 'Shopify Plus', 'WebGL Interactive'],
-    client: 'Lumora Skincare UK',
-    year: '2025',
+    client: 'Bjorbun Burgers',
+    year: '2026',
     deliverables: ['E-Commerce Architecture', 'Design System', '3D Packaging Mockups', '+140% Conversion Uplift'],
   },
   {
     number: '02',
-    title: 'Aura Health & Diagnostics',
-    category: 'UI/UX System · Clinical Web Platform · Mobile App',
+    title: 'Tondo Pizza Restaurant',
+    category: 'UI/UX System · Web Platform · Mobile App',
     description:
       'Engineered an end-to-end diagnostic telemetry platform combining intuitive data visualization with clinical-grade workflows, helping clinicians reduce diagnostic friction by 42%.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85',
+    image: '/tondo pizza image.png',
     link: '#',
     tags: ['React & TypeScript', 'Telemetry Engine', 'Design System', 'WCAG AA Compliant'],
-    client: 'Aura Diagnostics AG',
-    year: '2025',
+    client: 'Tondo Pizza',
+    year: '2026',
     deliverables: ['Complex Dashboard UI', 'Real-Time Telemetry', 'Clinical UX Research', 'Micro-Interactions'],
   },
 ];

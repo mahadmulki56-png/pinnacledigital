@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&amp;display=swap');
+      .fav-text {
+        font-family: 'Montserrat', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-style: italic;
+        font-size: 82px;
+      }
+    </style>
+  </defs>
+  <!-- Background rounded squircle -->
+  <rect width="120" height="120" rx="28" fill="#050605" stroke="#12b85a" stroke-width="2"/>
+  
+  <!-- 3D Extruded P -->
+  <g fill="#041a0e" stroke="#041a0e" stroke-width="5" stroke-linejoin="round">
+    <text class="fav-text" x="38" y="90">P</text>
+    <text class="fav-text" x="36" y="88">P</text>
+    <text class="fav-text" x="34" y="86">P</text>
+  </g>
+  <g fill="#0c3c22" stroke="#0c3c22" stroke-width="4" stroke-linejoin="round">
+    <text class="fav-text" x="32" y="84">P</text>
+    <text class="fav-text" x="30" y="82">P</text>
+    <text class="fav-text" x="28" y="80">P</text>
+  </g>
+  <text class="fav-text" x="24" y="76" fill="#ffffff" stroke="#062413" stroke-width="6" stroke-linejoin="round">P</text>
+  <text class="fav-text" x="24" y="76" fill="#ffffff">P</text>
+
+  <!-- Lime cursor -->
+  <g transform="translate(68, 62) scale(0.7)">
+    <path d="M 0,0 L 16,36 L 24,26 L 36,38 L 44,30 L 32,18 L 42,16 Z" fill="#84e824" stroke="#062413" stroke-width="4" stroke-linejoin="round" />
+  </g>
+</svg>

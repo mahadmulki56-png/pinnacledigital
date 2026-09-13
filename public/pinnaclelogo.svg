@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Drop shadow for the entire 3D block logo -->
+    <filter id="pinnacle-shadow" x="-10%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#020d07" flood-opacity="0.6"/>
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&amp;display=swap');
+      .pinnacle-text {
+        font-family: 'Montserrat', 'Arial Black', 'Impact', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 900;
+        font-style: italic;
+        font-size: 88px;
+        letter-spacing: -1px;
+      }
+    </style>
+  </defs>
+
+  <g filter="url(#pinnacle-shadow)">
+    <!-- Base 3D Deep Extrusion (Dark Forest Green) -->
+    <g fill="#041a0e" stroke="#041a0e" stroke-width="6" stroke-linejoin="round">
+      <text class="pinnacle-text" x="38" y="128">PINNACLE</text>
+      <text class="pinnacle-text" x="37" y="127">PINNACLE</text>
+      <text class="pinnacle-text" x="36" y="126">PINNACLE</text>
+      <text class="pinnacle-text" x="35" y="125">PINNACLE</text>
+    </g>
+
+    <!-- Mid 3D Extrusion (Rich Hunter/Forest Green) -->
+    <g fill="#08301a" stroke="#08301a" stroke-width="5" stroke-linejoin="round">
+      <text class="pinnacle-text" x="34" y="124">PINNACLE</text>
+      <text class="pinnacle-text" x="33" y="123">PINNACLE</text>
+      <text class="pinnacle-text" x="32" y="122">PINNACLE</text>
+      <text class="pinnacle-text" x="31" y="121">PINNACLE</text>
+      <text class="pinnacle-text" x="30" y="120">PINNACLE</text>
+      <text class="pinnacle-text" x="29" y="119">PINNACLE</text>
+      <text class="pinnacle-text" x="28" y="118">PINNACLE</text>
+      <text class="pinnacle-text" x="27" y="117">PINNACLE</text>
+      <text class="pinnacle-text" x="26" y="116">PINNACLE</text>
+    </g>
+
+    <!-- Upper 3D Extrusion (Deep Pine Green) -->
+    <g fill="#0c3c22" stroke="#0c3c22" stroke-width="4" stroke-linejoin="round">
+      <text class="pinnacle-text" x="25" y="115">PINNACLE</text>
+      <text class="pinnacle-text" x="24" y="114">PINNACLE</text>
+      <text class="pinnacle-text" x="23" y="113">PINNACLE</text>
+      <text class="pinnacle-text" x="22" y="112">PINNACLE</text>
+      <text class="pinnacle-text" x="21" y="111">PINNACLE</text>
+    </g>
+
+    <!-- Front outline border -->
+    <text class="pinnacle-text" x="20" y="110" fill="#ffffff" stroke="#062413" stroke-width="8" stroke-linejoin="round">
+      PINNACLE
+    </text>
+
+    <!-- Front Face (Pure Crisp White) -->
+    <text class="pinnacle-text" x="20" y="110" fill="#ffffff">
+      PINNACLE
+    </text>
+
+    <!-- Neon Lime Arrow Mouse Cursor at bottom right (under L & E) -->
+    <g transform="translate(422, 114)">
+      <!-- Shadow of cursor -->
+      <path d="M 0,0 L 16,36 L 24,26 L 36,38 L 44,30 L 32,18 L 42,16 Z" fill="#020c06" transform="translate(3, 4)" />
+      <!-- Cursor dark outline -->
+      <path d="M 0,0 L 16,36 L 24,26 L 36,38 L 44,30 L 32,18 L 42,16 Z" fill="#84e824" stroke="#062413" stroke-width="4" stroke-linejoin="round" />
+      <!-- Cursor interior fill -->
+      <path d="M 0,0 L 16,36 L 24,26 L 36,38 L 44,30 L 32,18 L 42,16 Z" fill="#84e824" />
+    </g>
+  </g>
+</svg>
