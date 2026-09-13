@@ -1,4 +1,5 @@
 import React from 'react';
+import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 import { AGENCY_INFO } from '../data/portfolioData.ts';
 import { PinnacleLogo } from './PinnacleLogo.tsx';
 
@@ -18,50 +19,42 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Center: Social Icons Circle Buttons matching reference */}
+          {/* Center: Social Media Links (Facebook, Instagram, WhatsApp) */}
           <div className="flex items-center gap-2.5 sm:gap-3">
-            {/* Facebook / Figma */}
+            {/* Facebook */}
             <a
-              href="https://figma.com"
+              href="https://www.facebook.com/profile.php?id=61591647024910"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Figma Profile"
-              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              aria-label="Facebook Profile"
+              id="footer-social-facebook"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 hover:bg-white/[0.1] flex items-center justify-center transition-all group"
             >
-              F
+              <Facebook className="w-4 h-4 transition-transform group-hover:scale-110" />
             </a>
 
-            {/* LinkedIn */}
+            {/* Instagram */}
             <a
-              href="https://linkedin.com"
+              href="https://www.instagram.com/mateo_the.developer/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              aria-label="Instagram Profile"
+              id="footer-social-instagram"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 hover:bg-white/[0.1] flex items-center justify-center transition-all group"
             >
-              in
+              <Instagram className="w-4 h-4 transition-transform group-hover:scale-110" />
             </a>
 
-            {/* X / Twitter */}
+            {/* WhatsApp */}
             <a
-              href="https://x.com"
+              href="https://wa.me"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="X Profile"
-              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              aria-label="WhatsApp Chat"
+              id="footer-social-whatsapp"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 hover:bg-white/[0.1] flex items-center justify-center transition-all group"
             >
-              𝕏
-            </a>
-
-            {/* Instagram / Dribbble */}
-            <a
-              href="https://dribbble.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Dribbble Profile"
-              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
-            >
-              Dr
+              <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
             </a>
           </div>
 
