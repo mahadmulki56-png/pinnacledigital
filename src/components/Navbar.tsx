@@ -65,13 +65,13 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
           </nav>
 
           {/* Actions: Theme toggle & CTA */}
-          <div className="flex items-center gap-3">
-            {/* Theme Toggle Button */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Theme Toggle Button with minimum touch target */}
             <button
               id="theme-toggle-btn"
               onClick={onToggleTheme}
               aria-label={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="w-9 h-9 rounded-full border border-white/10 light:border-black/10 flex items-center justify-center text-[#a0ada3] light:text-[#4a594e] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#12b85a]/40 transition-all bg-white/[0.03] light:bg-black/[0.03]"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full border border-white/10 light:border-black/10 flex items-center justify-center text-[#a0ada3] light:text-[#4a594e] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#12b85a]/40 transition-all bg-white/[0.03] light:bg-black/[0.03]"
             >
               {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -88,12 +88,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
               </div>
             </button>
 
-            {/* Mobile menu hamburger */}
+            {/* Mobile menu hamburger with minimum touch target */}
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="md:hidden p-2 rounded-lg text-[#a0ada3] hover:text-[#f4f7f4] hover:bg-white/[0.05] transition-colors"
+              className="md:hidden w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-[#a0ada3] hover:text-[#f4f7f4] hover:bg-white/[0.05] transition-colors"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -105,26 +105,26 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme, onOpenC
       {mobileMenuOpen && (
         <div
           id="mobile-nav-panel"
-          className="md:hidden bg-[#0a0d0b] light:bg-[#ffffff] border-b border-white/10 light:border-black/10 px-6 py-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
+          className="md:hidden bg-[#0a0d0b] light:bg-[#ffffff] border-b border-white/10 light:border-black/10 px-5 sm:px-6 py-6 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200"
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] transition-colors py-1"
+                className="text-base font-medium text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] transition-colors min-h-[44px] flex items-center px-2 rounded-lg hover:bg-white/[0.04]"
               >
                 {link.name}
               </a>
             ))}
-            <div className="pt-4 border-t border-white/10 light:border-black/10 flex flex-col gap-3">
+            <div className="pt-4 mt-2 border-t border-white/10 light:border-black/10 flex flex-col gap-3">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold rounded-full text-sm transition-colors shadow-lg shadow-[#12b85a]/20"
+                className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold rounded-full text-sm transition-colors shadow-lg shadow-[#12b85a]/20"
               >
                 <span>Get In Touch</span>
                 <ArrowUpRight className="w-4 h-4" />

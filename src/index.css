@@ -208,9 +208,38 @@ html.light .floating-pill {
   color: #0d140f;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling & overflow guards */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Fluid responsive typography and section spacing */
+.section-fluid-py {
+  padding-top: clamp(3.5rem, 7.5vw, 7rem);
+  padding-bottom: clamp(3.5rem, 7.5vw, 7rem);
+}
+
+.heading-fluid-h1 {
+  font-size: clamp(2.15rem, 6vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.heading-fluid-h2 {
+  font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.heading-fluid-h3 {
+  font-size: clamp(1.35rem, 2.5vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.card-fluid-padding {
+  padding: clamp(1.25rem, 3.5vw, 2.75rem);
 }
 
 /* Scroll Entry Animations via CSS Transitions */

@@ -39,12 +39,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         {/* Subtle glowing halo in modal top right */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#12b85a]/15 rounded-full blur-3xl pointer-events-none -z-0" />
 
-        {/* Close Button */}
+        {/* Close Button with minimum touch target */}
         <button
           onClick={onClose}
           id="contact-modal-close"
           aria-label="Close Contact Modal"
-          className="absolute top-5 right-5 p-2 rounded-full text-[#a0ada3] hover:text-[#f4f7f4] hover:bg-white/[0.08] light:hover:bg-black/[0.05] transition-colors z-10"
+          className="absolute top-4 sm:top-5 right-4 sm:right-5 w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-[#a0ada3] hover:text-[#f4f7f4] hover:bg-white/[0.08] light:hover:bg-black/[0.05] transition-colors z-10"
         >
           <X className="w-5 h-5" />
         </button>
@@ -62,7 +62,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             </p>
             <button
               onClick={handleReset}
-              className="mt-8 px-6 py-2.5 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold text-sm transition-colors"
+              className="mt-8 min-h-[44px] px-6 py-2.5 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold text-sm transition-colors"
             >
               Done
             </button>
@@ -74,15 +74,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               <span>Initiate Project</span>
             </div>
 
-            <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#f4f7f4] light:text-[#0d140f]">
+            <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-[#f4f7f4] light:text-[#0d140f]">
               Let's create something better.
             </h3>
-            <p className="text-xs sm:text-sm text-[#a0ada3] light:text-[#4a594e] mt-1.5 mb-6">
+            <p className="text-xs sm:text-sm text-[#a0ada3] light:text-[#4a594e] mt-1.5 mb-5 sm:mb-6">
               Tell us about your brand vision, scope, and timeline.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-[#a0ada3] light:text-[#4a594e] mb-1.5">
                     Your Name *
@@ -93,7 +93,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Sarah Jenkins"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.04] light:bg-black/[0.03] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] placeholder-[#67756b] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
+                    className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white/[0.04] light:bg-black/[0.03] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] placeholder-[#67756b] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
                   />
                 </div>
 
@@ -107,12 +107,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="sarah@company.com"
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/[0.04] light:bg-black/[0.03] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] placeholder-[#67756b] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
+                    className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-white/[0.04] light:bg-black/[0.03] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] placeholder-[#67756b] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-[#a0ada3] light:text-[#4a594e] mb-1.5">
                     Primary Service
@@ -120,7 +120,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#101512] light:bg-[#ffffff] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
+                    className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-[#101512] light:bg-[#ffffff] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
                   >
                     <option value="Web Design & Development">Web Design & Development</option>
                     <option value="UI/UX Product Design">UI/UX Product Design</option>
@@ -136,7 +136,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   <select
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#101512] light:bg-[#ffffff] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
+                    className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-[#101512] light:bg-[#ffffff] border border-white/10 light:border-black/10 text-sm text-[#f4f7f4] light:text-[#0d140f] focus:outline-none focus:border-[#39ff88]/50 transition-colors"
                   >
                     <option value="$1,800 - $3,500">$1,800 - $3,500 (Starter Sprint)</option>
                     <option value="$3,500 - $7,000">$3,500 - $7,000 (Growth Partner)</option>
@@ -163,7 +163,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 <button
                   type="submit"
                   id="contact-form-submit"
-                  className="w-full group inline-flex items-center justify-center gap-3 py-3.5 px-6 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#12b85a]/25"
+                  className="w-full min-h-[48px] group inline-flex items-center justify-center gap-3 py-3 px-6 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#12b85a]/25"
                 >
                   <span>Submit Inquiry</span>
                   <Send className="w-4 h-4" />

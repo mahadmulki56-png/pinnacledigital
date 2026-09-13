@@ -16,30 +16,30 @@ export const TrustSection: React.FC = () => {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#050605] light:bg-[#f8faf8] border-t border-white/[0.06] light:border-black/[0.06] transition-colors">
+    <section className="section-fluid-py bg-[#050605] light:bg-[#f8faf8] border-t border-white/[0.06] light:border-black/[0.06] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-14 sm:mb-20">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] light:bg-black/[0.04] border border-white/10 light:border-black/10 text-xs font-semibold text-[#39ff88] light:text-[#075c32] uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Client Feedback</span>
           </div>
           <h2
             id="trust-heading"
-            className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] tracking-tight text-[#f4f7f4] light:text-[#0d140f]"
+            className="font-display font-bold text-[clamp(1.75rem,4.2vw,3.25rem)] tracking-tight text-[#f4f7f4] light:text-[#0d140f]"
           >
             Trusted by ambitious <br className="hidden sm:inline" /> teams worldwide
           </h2>
         </div>
 
         {/* Testimonial Editorial Card Container matching reference */}
-        <div className="max-w-5xl mx-auto rounded-3xl sm:rounded-[36px] glass-card border border-white/10 light:border-black/10 p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="max-w-5xl mx-auto rounded-2xl sm:rounded-[36px] glass-card border border-white/10 light:border-black/10 p-5 sm:p-8 lg:p-12 overflow-hidden shadow-2xl relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Left Content Area */}
             <div className="lg:col-span-6 flex flex-col justify-between h-full">
               <div>
                 {/* Header tag and index indicators */}
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/[0.06] light:bg-black/[0.06] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f]">
                     Customer Stories
                   </span>
@@ -51,7 +51,7 @@ export const TrustSection: React.FC = () => {
                         key={item.id}
                         onClick={() => setCurrentIndex(idx)}
                         aria-label={`Go to testimonial ${idx + 1}`}
-                        className={`w-6 h-6 rounded-full text-[11px] font-bold flex items-center justify-center transition-all ${
+                        className={`w-7 h-7 sm:w-6 sm:h-6 rounded-full text-xs sm:text-[11px] font-bold flex items-center justify-center transition-all ${
                           currentIndex === idx
                             ? 'bg-[#12b85a] text-[#050605] shadow-sm'
                             : 'bg-white/[0.05] light:bg-black/[0.05] text-[#a0ada3] hover:text-[#f4f7f4]'
@@ -65,34 +65,34 @@ export const TrustSection: React.FC = () => {
 
                 {/* Quote */}
                 <div className="relative">
-                  <p className="text-base sm:text-lg lg:text-xl text-[#f4f7f4] light:text-[#0d140f] font-normal leading-relaxed italic">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#f4f7f4] light:text-[#0d140f] font-normal leading-relaxed italic">
                     "{current.quote}"
                   </p>
                 </div>
 
                 {/* Author Info */}
-                <div className="mt-6 pt-6 border-t border-white/[0.08] light:border-black/[0.08]">
-                  <h4 className="font-display font-bold text-base text-[#f4f7f4] light:text-[#0d140f]">
+                <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-white/[0.08] light:border-black/[0.08]">
+                  <h4 className="font-display font-bold text-sm sm:text-base text-[#f4f7f4] light:text-[#0d140f]">
                     {current.author}
                   </h4>
                   <p className="text-xs sm:text-sm text-[#a0ada3] light:text-[#4a594e]">
                     {current.role}, {current.company}
                   </p>
                   {current.stats && (
-                    <span className="inline-block mt-2 text-xs font-semibold text-[#39ff88] light:text-[#075c32]">
+                    <span className="inline-block mt-1.5 sm:mt-2 text-xs font-semibold text-[#39ff88] light:text-[#075c32]">
                       ✦ {current.stats}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Navigation Arrows (Prev / Next) */}
-              <div className="flex items-center gap-3 mt-8">
+              {/* Navigation Arrows (Prev / Next) with minimum 44px touch targets */}
+              <div className="flex items-center gap-3 mt-6 sm:mt-8">
                 <button
                   onClick={prev}
                   id="testimonial-prev-btn"
                   aria-label="Previous testimonial"
-                  className="w-10 h-10 rounded-full border border-white/15 light:border-black/15 bg-white/[0.03] light:bg-black/[0.03] text-[#f4f7f4] light:text-[#0d140f] flex items-center justify-center hover:border-[#39ff88]/50 hover:bg-[#12b85a]/15 transition-all"
+                  className="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full border border-white/15 light:border-black/15 bg-white/[0.03] light:bg-black/[0.03] text-[#f4f7f4] light:text-[#0d140f] flex items-center justify-center hover:border-[#39ff88]/50 hover:bg-[#12b85a]/15 transition-all"
                 >
                   <ArrowLeft className="w-4 h-4" />
                 </button>
@@ -100,7 +100,7 @@ export const TrustSection: React.FC = () => {
                   onClick={next}
                   id="testimonial-next-btn"
                   aria-label="Next testimonial"
-                  className="w-10 h-10 rounded-full border border-white/15 light:border-black/15 bg-white/[0.03] light:bg-black/[0.03] text-[#f4f7f4] light:text-[#0d140f] flex items-center justify-center hover:border-[#39ff88]/50 hover:bg-[#12b85a]/15 transition-all"
+                  className="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full border border-white/15 light:border-black/15 bg-white/[0.03] light:bg-black/[0.03] text-[#f4f7f4] light:text-[#0d140f] flex items-center justify-center hover:border-[#39ff88]/50 hover:bg-[#12b85a]/15 transition-all"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -109,7 +109,7 @@ export const TrustSection: React.FC = () => {
 
             {/* Right Image Area (matching reference photo) */}
             <div className="lg:col-span-6">
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 light:border-black/10 shadow-xl">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 light:border-black/10 shadow-xl">
                 <img
                   src={current.image}
                   alt={current.author}

@@ -16,14 +16,14 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Center: Social Icons Circle Buttons matching reference */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Facebook / Figma */}
             <a
               href="https://figma.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Figma Profile"
-              className="w-9 h-9 rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
             >
               F
             </a>
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="w-9 h-9 rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
             >
               in
             </a>
@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X Profile"
-              className="w-9 h-9 rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
             >
               𝕏
             </a>
@@ -56,21 +56,21 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dribbble Profile"
-              className="w-9 h-9 rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 flex items-center justify-center text-xs font-bold transition-all"
             >
               Dr
             </a>
           </div>
 
           {/* Right: Meta Links matching reference */}
-          <div className="flex items-center gap-6 text-xs text-[#a0ada3] light:text-[#4a594e]">
-            <a href="#hero" className="hover:text-[#39ff88] light:hover:text-[#075c32] transition-colors">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs text-[#a0ada3] light:text-[#4a594e]">
+            <a href="#hero" className="py-2 hover:text-[#39ff88] light:hover:text-[#075c32] transition-colors">
               Style Guide
             </a>
-            <a href="#hero" className="hover:text-[#39ff88] light:hover:text-[#075c32] transition-colors">
+            <a href="#hero" className="py-2 hover:text-[#39ff88] light:hover:text-[#075c32] transition-colors">
               Changelog
             </a>
-            <a href="#hero" className="hover:text-[#39ff88] light:hover:text-[#075c32] transition-colors">
+            <a href="#hero" className="py-2 hover:text-[#39ff88] light:hover:text-[#075c32] transition-colors">
               Licenses
             </a>
           </div>
