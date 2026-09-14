@@ -24,6 +24,7 @@ import { Project } from './types.ts';
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
+  const [selectedPlanId, setSelectedPlanId] = useState<string | undefined>(undefined);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
@@ -79,7 +80,12 @@ export default function App() {
 
         {/* 6. Pricing & Engagement Models */}
         <RevealSection>
-          <PricingSection onOpenContact={() => setContactModalOpen(true)} />
+          <PricingSection
+            onOpenContact={(planId) => {
+              setSelectedPlanId(planId);
+              setContactModalOpen(true);
+            }}
+          />
         </RevealSection>
 
         {/* 7. Trust & Client Feedback */}
@@ -106,10 +112,14 @@ export default function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Interactive Contact Drawer/Modal */}
+      {/* Interactive Contact Drawer/Modal with Claymorphism */}
       <ContactModal
         isOpen={contactModalOpen}
-        onClose={() => setContactModalOpen(false)}
+        onClose={() => {
+          setContactModalOpen(false);
+          setSelectedPlanId(undefined);
+        }}
+        defaultPlanId={selectedPlanId}
       />
 
       {/* Interactive Project Case Study Modal */}

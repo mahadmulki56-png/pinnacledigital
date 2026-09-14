@@ -3,7 +3,7 @@ import { ArrowUpRight, Check, Sparkles, Zap } from 'lucide-react';
 import { PRICING_PLANS } from '../data/portfolioData.ts';
 
 interface PricingSectionProps {
-  onOpenContact: () => void;
+  onOpenContact: (planId?: string) => void;
 }
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact }) => {
@@ -30,15 +30,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
           </p>
         </div>
 
-        {/* Two Pricing Cards Side-by-Side matching reference */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto items-stretch">
+        {/* Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto items-stretch">
           {PRICING_PLANS.map((plan) => (
             <div
               key={plan.id}
               id={`pricing-card-${plan.id}`}
-              className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between transition-all duration-300 ${
+              className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-9 flex flex-col justify-between transition-all duration-300 ${
                 plan.highlighted
-                  ? 'glass-card border-2 border-[#12b85a]/40 light:border-[#12b85a]/60 shadow-2xl shadow-[#12b85a]/10'
+                  ? 'glass-card border-2 border-[#12b85a]/50 light:border-[#12b85a]/70 shadow-2xl shadow-[#12b85a]/15'
                   : 'glass-card border border-white/10 light:border-black/10 hover:border-white/20'
               }`}
             >
@@ -94,7 +94,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenContact })
 
               <div className="mt-8 sm:mt-10 pt-3 sm:pt-4">
                 <button
-                  onClick={onOpenContact}
+                  onClick={() => onOpenContact(plan.id)}
                   id={`pricing-btn-${plan.id}`}
                   className={`w-full min-h-[46px] group inline-flex items-center justify-center gap-3 py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300 ${
                     plan.highlighted
