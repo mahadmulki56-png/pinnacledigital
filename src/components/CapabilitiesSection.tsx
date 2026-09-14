@@ -27,7 +27,7 @@ export const CapabilitiesSection: React.FC = () => {
                 src={imgError ? fallbackUrl : portraitUrl}
                 onError={() => setImgError(true)}
                 alt="Lead Architect & Design Director"
-                className="w-full h-full object-cover object-center filter grayscale contrast-[1.05] group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover object-center transition-all duration-700"
               />
 
               {/* Inset badge at bottom of portrait */}
