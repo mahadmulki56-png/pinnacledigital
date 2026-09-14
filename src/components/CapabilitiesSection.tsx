@@ -4,7 +4,7 @@ import { CAPABILITY_METRICS } from '../data/portfolioData.ts';
 
 export const CapabilitiesSection: React.FC = () => {
   const [imgError, setImgError] = useState(false);
-  const portraitUrl = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=85';
+  const portraitUrl = '/omari.png';
   const fallbackUrl = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=85';
 
   const clientAvatars = [
