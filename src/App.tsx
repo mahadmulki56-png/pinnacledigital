@@ -19,13 +19,33 @@ import { Footer } from './components/Footer.tsx';
 import { ContactModal } from './components/ContactModal.tsx';
 import { ProjectModal } from './components/ProjectModal.tsx';
 import { RevealSection } from './components/RevealSection.tsx';
+import { PinGate } from './components/PinGate.tsx';
+import { InquiriesDashboard } from './components/InquiriesDashboard.tsx';
 import { Project } from './types.ts';
+import { testFirestoreConnection } from './lib/firebase.ts';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
   const [selectedPlanId, setSelectedPlanId] = useState<string | undefined>(undefined);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Private Inquiries Dashboard state
+  const [pinGateOpen, setPinGateOpen] = useState<boolean>(false);
+  const [showDashboard, setShowDashboard] = useState<boolean>(false);
+
+  useEffect(() => {
+    testFirestoreConnection();
+    // Check if there is already an active session cookie on load
+    fetch('/api/auth/status')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.authenticated) {
+          // If already authenticated via cookie, user can directly access or we keep state ready
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -41,6 +61,18 @@ export default function App() {
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
   };
+
+  // If authenticated into Dashboard, swap view to Live Inquiries Dashboard
+  if (showDashboard) {
+    return (
+      <InquiriesDashboard
+        onLock={() => {
+          setShowDashboard(false);
+          setPinGateOpen(false);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#050605] light:bg-[#f8faf8] text-[#f4f7f4] light:text-[#0d140f] selection:bg-[#12b85a]/30 selection:text-[#8dffb8] relative transition-colors duration-300">
@@ -110,7 +142,17 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenInquiries={() => setPinGateOpen(true)} />
+
+      {/* 4-digit PIN Gate Modal */}
+      <PinGate
+        isOpen={pinGateOpen}
+        onClose={() => setPinGateOpen(false)}
+        onSuccess={() => {
+          setPinGateOpen(false);
+          setShowDashboard(true);
+        }}
+      />
 
       {/* Interactive Contact Drawer/Modal with Claymorphism */}
       <ContactModal

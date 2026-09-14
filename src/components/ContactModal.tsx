@@ -15,8 +15,11 @@ import {
   DollarSign,
   Briefcase,
   Phone,
+  Loader2,
 } from 'lucide-react';
 import { COUNTRY_CODES, CountryCode } from '../data/countryCodes.ts';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase.ts';
+import { collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -55,6 +58,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, def
   const [countrySearch, setCountrySearch] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -119,9 +124,59 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, def
       c.iso.toLowerCase().includes(countrySearch.toLowerCase())
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      whatsappNumber: fullWhatsAppNumber,
+      industry: formData.industry,
+      budget: selectedBudgetText,
+      message: formData.message.trim(),
+    };
+
+    try {
+      // 1. Send to server API (encrypted in storage and broadcast via SSE to live dashboard)
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        console.warn('API submission responded with non-200 status:', res.status);
+      }
+    } catch (apiErr) {
+      console.error('Server /api/inquiries request error:', apiErr);
+    }
+
+    // 2. Also record to Firestore client-side as configured previously
+    try {
+      const inquiryId = `inq_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+      await setDoc(doc(db, 'inquiries', inquiryId), {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        countryCode: selectedCountry.code,
+        whatsappNumber: formData.whatsappNumber.trim(),
+        fullWhatsAppNumber,
+        industry: formData.industry,
+        budgetType: formData.budgetType,
+        customBudget: formData.customBudget.trim() || undefined,
+        budgetValue: selectedBudgetText,
+        message: formData.message.trim(),
+        createdAt: new Date().toISOString(),
+        status: 'new',
+      });
+    } catch (firestoreErr) {
+      console.error('Firestore backup write error:', firestoreErr);
+    }
+
+    // Advance to the success next-steps UI
     setSubmitted(true);
+    setIsSubmitting(false);
   };
 
   const handleReset = () => {
@@ -639,11 +694,21 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, def
                 </button>
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   id="contact-form-submit"
-                  className="flex-1 min-h-[50px] clay-btn-submit inline-flex items-center justify-center gap-3 py-3.5 px-6 text-[#050605] font-extrabold text-sm tracking-wide transition-all cursor-pointer"
+                  className="flex-1 min-h-[50px] clay-btn-submit inline-flex items-center justify-center gap-3 py-3.5 px-6 text-[#050605] font-extrabold text-sm tracking-wide transition-all cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
                 >
-                  <span>Submit Inquiry</span>
-                  <Send className="w-4 h-4" />
+                  {isSubmitting ? (
+                    <>
+                      <span>Sending Inquiry...</span>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Inquiry</span>
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </div>
 

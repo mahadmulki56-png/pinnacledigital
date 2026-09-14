@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Global Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isValidInquiry(data) {
+      return data.name is string && data.name.size() >= 1 && data.name.size() <= 100
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 150
+        && data.industry is string && data.industry.size() >= 1 && data.industry.size() <= 100
+        && data.budgetType is string && data.budgetType.size() >= 1 && data.budgetType.size() <= 30
+        && data.budgetValue is string && data.budgetValue.size() >= 1 && data.budgetValue.size() <= 100
+        && data.message is string && data.message.size() >= 1 && data.message.size() <= 3000
+        && data.status in ['new', 'reviewing', 'contacted', 'archived']
+        && (!('countryCode' in data) || (data.countryCode is string && data.countryCode.size() <= 10))
+        && (!('whatsappNumber' in data) || (data.whatsappNumber is string && data.whatsappNumber.size() <= 30))
+        && (!('fullWhatsAppNumber' in data) || (data.fullWhatsAppNumber is string && data.fullWhatsAppNumber.size() <= 40))
+        && (!('customBudget' in data) || (data.customBudget is string && data.customBudget.size() <= 100))
+        && (!('createdAt' in data) || data.createdAt is timestamp || data.createdAt is string);
+    }
+
+    // Inquiries Collection: Prospective clients can create new inquiries anonymously or authenticated.
+    // Read and list access is locked by default to protect client contact data (PII).
+    match /inquiries/{inquiryId} {
+      allow create: if isValidId(inquiryId) && isValidInquiry(incoming());
+      allow read, update, delete: if false;
+    }
+  }
+}

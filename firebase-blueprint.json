@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "inquiry": {
+      "title": "Inquiry",
+      "description": "A client project inquiry submitted via the ContactModal form.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the client.",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "Work email address of the client.",
+          "minLength": 3,
+          "maxLength": 150
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "Country dial code e.g. +254 or +1.",
+          "minLength": 1,
+          "maxLength": 10
+        },
+        "whatsappNumber": {
+          "type": "string",
+          "description": "WhatsApp contact number without country code.",
+          "maxLength": 30
+        },
+        "fullWhatsAppNumber": {
+          "type": "string",
+          "description": "Full formatted WhatsApp number with country code.",
+          "maxLength": 40
+        },
+        "industry": {
+          "type": "string",
+          "description": "Business industry selected by the client.",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "budgetType": {
+          "type": "string",
+          "description": "Selected package id or custom budget indicator.",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "customBudget": {
+          "type": "string",
+          "description": "Optional custom budget range or specification.",
+          "maxLength": 100
+        },
+        "budgetValue": {
+          "type": "string",
+          "description": "Descriptive budget value string.",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "message": {
+          "type": "string",
+          "description": "Project overview, requirements, and brand vision.",
+          "minLength": 1,
+          "maxLength": 3000
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp or server timestamp when the inquiry was submitted."
+        },
+        "status": {
+          "type": "string",
+          "description": "Inquiry review status.",
+          "enum": ["new", "reviewing", "contacted", "archived"]
+        }
+      },
+      "required": ["name", "email", "industry", "budgetType", "message", "status"]
+    }
+  },
+  "firestore": {
+    "/inquiries/{inquiryId}": {
+      "schema": "inquiry",
+      "description": "Stores incoming prospective client project inquiries and scopes."
+    }
+  }
+}

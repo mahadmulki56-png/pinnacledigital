@@ -63,3 +63,16 @@ export interface NavLinkItem {
   name: string;
   href: string;
 }
+
+export interface Inquiry {
+  id: string;
+  receivedAt: string;
+  name: string;
+  email: string;
+  whatsappNumber: string;
+  industry: string;
+  budget: string;
+  message: string;
+  read: boolean;
+}
+

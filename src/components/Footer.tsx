@@ -1,9 +1,13 @@
 import React from 'react';
-import { Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Facebook, Instagram, MessageCircle, Inbox } from 'lucide-react';
 import { AGENCY_INFO } from '../data/portfolioData.ts';
 import { PinnacleLogo } from './PinnacleLogo.tsx';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenInquiries?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenInquiries }) => {
   return (
     <footer className="py-12 bg-[#050605] light:bg-[#f8faf8] border-t border-white/[0.08] light:border-black/[0.08] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +23,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Center: Social Media Links (Facebook, Instagram, WhatsApp) */}
+          {/* Center: Social Media Links (Facebook, Instagram, WhatsApp) + Inquiries button */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Facebook */}
             <a
@@ -56,6 +60,17 @@ export const Footer: React.FC = () => {
             >
               <MessageCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
             </a>
+
+            {/* Inquiries Private Entry Point */}
+            <button
+              type="button"
+              onClick={onOpenInquiries}
+              aria-label="Inquiries"
+              id="footer-action-inquiries"
+              className="w-10 h-10 min-h-[44px] min-w-[44px] rounded-full bg-white/[0.06] light:bg-black/[0.05] border border-white/10 light:border-black/10 text-[#f4f7f4] light:text-[#0d140f] hover:text-[#39ff88] light:hover:text-[#075c32] hover:border-[#39ff88]/40 hover:bg-white/[0.1] flex items-center justify-center transition-all group cursor-pointer"
+            >
+              <Inbox className="w-4 h-4 transition-transform group-hover:scale-110" />
+            </button>
           </div>
 
           {/* Right: Meta Links matching reference */}
