@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
     description:
       'We transformed Bjorbun Burgers into a modern luxury skincare brand with refined visuals, sustainable packaging, and a conversion-focused eCommerce experience designed for growth.',
     image: '/bjorbun image.png',
-    link: '#',
+    link: 'https://bjorbuneats.vercel.app/',
     tags: ['Next.js', 'Tailwind CSS', 'Shopify Plus', 'WebGL Interactive'],
     client: 'Bjorbun Burgers',
     year: '2026',
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     description:
       'Engineered an end-to-end diagnostic telemetry platform combining intuitive data visualization with clinical-grade workflows, helping clinicians reduce diagnostic friction by 42%.',
     image: '/tondo pizza image.png',
-    link: '#',
+    link: 'https://tondopizza.vercel.app/',
     tags: ['React & TypeScript', 'Telemetry Engine', 'Design System', 'WCAG AA Compliant'],
     client: 'Tondo Pizza',
     year: '2026',
@@ -125,6 +125,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: [
       'Everything in Starter Sprint',
       'Up to 10 Pages',
+      'Free Logo Creation & And Brand Identity',
       'Advanced UI/UX Design',
       'Advanced Animations & Interactions',
       'CMS for Website Content',

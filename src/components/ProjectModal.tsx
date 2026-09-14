@@ -104,16 +104,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 {project.client} · Deliverable Cycle: {project.year}
               </span>
 
-              <button
-                onClick={() => {
-                  onClose();
-                  onOpenContact();
-                }}
-                className="min-h-[44px] group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold text-xs sm:text-sm transition-all"
-              >
-                <span>Inquire About Similar Work</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
+              <div className="flex items-center gap-3">
+                {project.link && project.link !== '#' && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-h-[44px] group inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-[#121614] light:bg-[#0d140f] border border-white/15 light:border-black/15 text-xs sm:text-sm font-semibold text-[#f4f7f4] hover:border-[#39ff88]/60 hover:text-[#39ff88] transition-all"
+                  >
+                    <span>Visit Live Website</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+
+                <button
+                  onClick={() => {
+                    onClose();
+                    onOpenContact();
+                  }}
+                  className="min-h-[44px] group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] font-semibold text-xs sm:text-sm transition-all shadow-md shadow-[#12b85a]/20"
+                >
+                  <span>Inquire About Similar Work</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>

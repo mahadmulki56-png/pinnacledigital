@@ -85,16 +85,25 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
 
                   {/* Actions */}
                   <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id={`live-site-project-${project.number}`}
+                      className="group/btn min-h-[44px] inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#12b85a] hover:bg-[#39ff88] text-[#050605] text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg shadow-[#12b85a]/20"
+                    >
+                      <span>Visit Live Website</span>
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </a>
+
                     <button
                       onClick={() => onSelectProject(project)}
                       id={`explore-project-${project.number}`}
-                      className="group/btn min-h-[44px] inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#121614] light:bg-[#0d140f] border border-white/15 light:border-black/15 text-xs sm:text-sm font-semibold text-[#f4f7f4] hover:border-[#39ff88]/60 hover:bg-[#151c18] transition-all duration-300"
+                      className="min-h-[44px] inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#121614] light:bg-[#0d140f] border border-white/15 light:border-black/15 text-xs sm:text-sm font-semibold text-[#f4f7f4] hover:border-[#39ff88]/60 hover:bg-[#151c18] transition-all duration-300"
                     >
-                      <span>Explore Project</span>
-                      <div className="w-5 h-5 rounded-full bg-[#12b85a] group-hover/btn:bg-[#39ff88] text-[#050605] flex items-center justify-center transition-colors">
-                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                      </div>
+                      <span>Case Details</span>
                     </button>
+
                     {project.client && (
                       <span className="text-[11px] sm:text-xs text-[#67756b] light:text-[#a0ada3]">
                         Client: {project.client} · {project.year}
@@ -103,11 +112,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                   </div>
                 </div>
 
-                {/* Large Project Image Showcase (Right) */}
+                {/* Large Project Image Showcase (Right) - Directly opens live website */}
                 <div className="lg:col-span-6">
-                  <div
-                    onClick={() => onSelectProject(project)}
-                    className="relative w-full aspect-[16/10] sm:aspect-[16/11] rounded-xl sm:rounded-3xl overflow-hidden bg-[#101512] light:bg-[#f0f4f1] border border-white/10 light:border-black/10 group-hover:border-[#39ff88]/30 shadow-2xl cursor-pointer transition-all duration-500"
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id={`project-image-link-${project.number}`}
+                    className="block relative w-full aspect-[16/10] sm:aspect-[16/11] rounded-xl sm:rounded-3xl overflow-hidden bg-[#101512] light:bg-[#f0f4f1] border border-white/10 light:border-black/10 group-hover:border-[#39ff88]/40 shadow-2xl cursor-pointer transition-all duration-500"
                   >
                     <img
                       src={
@@ -121,13 +133,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                     />
 
                     {/* Interactive overlay pill on hover */}
-                    <div className="absolute inset-0 bg-[#050605]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="px-4 py-2 rounded-full bg-[#0a0d0b]/90 text-white text-xs font-semibold backdrop-blur-md border border-white/20 flex items-center gap-2 shadow-xl">
-                        <span>View Case Details</span>
+                    <div className="absolute inset-0 bg-[#050605]/35 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="px-5 py-2.5 rounded-full bg-[#0a0d0b]/95 text-white text-xs font-semibold backdrop-blur-md border border-[#39ff88]/40 flex items-center gap-2 shadow-xl group-hover:scale-105 transition-transform">
+                        <span>Visit Live Website</span>
                         <ExternalLink className="w-3.5 h-3.5 text-[#39ff88]" />
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
